@@ -1,4 +1,4 @@
-export default function Navbar ({menuItems}) {
+export function Navbar ({menuItems}) {
     return (
         <nav>
       <div className="container navbar">
