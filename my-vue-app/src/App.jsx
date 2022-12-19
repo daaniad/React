@@ -1,5 +1,7 @@
 // import reactLogo from './assets/react.svg'
 import './App.css'
+import './navbar.css'
+import { Header } from './assets/Header/Header'
 import {Navbar} from './assets/Header/Navbar'
 import { useState } from 'react'
 function Likes() {
@@ -15,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header/> */}
+      <Header/>
       <Navbar menuItems={menu}/>
       {/* <Home/>
       <Footer/> */}
