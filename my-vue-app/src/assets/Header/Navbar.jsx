@@ -5,7 +5,7 @@ export function Navbar ({menuItems}) {
         <div className="button nav">
         <ul>
         {menuItems.map((menuItem, index) => (
-            <li><a href="All-products.html" key={index}><span>{menuItem}</span></a></li>
+            <li key={index}><a href="All-products.html" ><span>{menuItem}</span></a></li>
         ))}
         </ul>
         </div>
