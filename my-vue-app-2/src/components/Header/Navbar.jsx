@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import { homeMenu } from "../../const/homeMenu"
 export function Navbar ({menuItems}) {
     return (
         <nav>
