@@ -1,8 +1,6 @@
 // import reactLogo from './assets/react.svg'
 import "./App.css";
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
-
-import "./assets/Imagenes/POP/Sora_logo-removedbg.png"
 import Home from "./views/Home/Home";
 import Login from "./views/Login/Login";
 import Cart from "./views/Cart/Cart";

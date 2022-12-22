@@ -8,7 +8,7 @@ import { homeMenu } from "../../const/homeMenu";
 export default function Layout() {
   return (
     <>
-      <Header />
+      <Header menuItems={homeMenu}/>
       <Navbar menuItems={homeMenu} />
       <Outlet />
       <Footer/>

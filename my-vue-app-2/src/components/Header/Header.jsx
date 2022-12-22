@@ -1,4 +1,5 @@
-export function Header (logo) {
+import logo from "@/assets/imagenes/POP/Sora_logo-removebg.png"
+export function Header () {
     return (
     <header>
       <div className="container upper">
@@ -8,9 +9,7 @@ export function Header (logo) {
       </div>
       <div className="container header-inner">
         <div className="logos">
-          <a href="proyecto-de-verdad.html">
             <img src={logo}/>
-          </a>
         </div>
         
         
