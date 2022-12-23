@@ -1,18 +1,18 @@
 import { useState } from "react";
 import Title from "../../components/Title";
-import List from "@/components/List/List"
-import { products } from "@/const/products";
+import Listed from "@/components/List/List"
+import { todoList } from "@/const/todoList";
 
 export default function About() {
 
   const [title, setTitle] = useState("About");
-  const [list, setList] = useState(products);
+  const [list, setList] = useState(todoList);
 
   return (
       <div>
         <h2>Esto es el {title}</h2>
         <Title setTitle={setTitle} />
-        <List products={list} />
+        <Listed todoList={list} onClick = {setList} />
       </div>
   );
 }
