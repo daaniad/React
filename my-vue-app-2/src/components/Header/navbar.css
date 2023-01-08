@@ -31,6 +31,10 @@
       animation: logo-spin infinite 20s linear;
     }
   }
+
+  body {
+    background-image: url(https://www.kh13.com/uploads/monthly_2018_10/65ec68b8c6284deebaa347680f7c0b06.jpg.ab151c5ffb6dfa48fd7f37c670a21cbc.jpg);
+  }
   
   .card {
     padding: 2em;
@@ -48,7 +52,7 @@
     display: flex;
     align-items:center;
     justify-content:space-around;
-    background-image: url(https://www.kh13.com/uploads/monthly_2018_10/65ec68b8c6284deebaa347680f7c0b06.jpg.ab151c5ffb6dfa48fd7f37c670a21cbc.jpg);
+  
     height: 14vh;
   }
   
@@ -84,4 +88,6 @@
   .button a{
     color: var(--negro);
   }
+
+  
   

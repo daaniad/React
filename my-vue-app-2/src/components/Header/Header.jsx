@@ -1,31 +1,38 @@
-import logo from "@/assets/imagenes/POP/Sora_logo-removebg.png"
-export function Header () {
-    return (
+import logo from "@/assets/imagenes/POP/Sora_logo-removebg.png";
+import { Link } from "react-router-dom";
+export function Header({ menuItemsRight }) {
+  return (
     <header>
-      <div className="container upper">
-        <div className="title">
-          <h1>House of POP</h1>
+      <div className="d-flex justify-content-between text-white bg-dark">
+        <div className="">
+          <img height={60} src={logo} />
+        </div>
+        <div className="">
+          <h1 className="">House of POP</h1>
+        </div>
+        <div className="">
+          <div className="d-inline-flex">
+            {menuItemsRight.map((menuItem, index) => (
+              <button type="button" className="btn btn-light" key={index}>
+                <Link className="text-decoration-none" to={menuItem.path}>
+                  <span className="text-dark">{menuItem.label}</span>
+                </Link>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
-      <div className="container header-inner">
-        <div className="logos">
-            <img src={logo}/>
-        </div>
-        
-        
+      <div className="">
         <div className="input-grp">
-          <input className="searchbar" type="search" name="search" id="search" placeholder="Search..." />
-        </div>
-        <div className="buttons">
-        <div className="button basket">
-          <a href="#">Basket<span id = "basketNumber" className="number">0</span></a>
-        </div>
-        <div className="button logout">
-          <a href="#"><span>Logout</span></a>
+          <input
+            className=""
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search..."
+          />
         </div>
       </div>
-      </div>
-      </header>
-    
-    )
+    </header>
+  );
 }

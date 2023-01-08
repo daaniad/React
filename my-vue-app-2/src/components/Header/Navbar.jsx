@@ -11,6 +11,7 @@ export function Navbar ({menuItems}) {
         </ul>
         </div>
       </div>
+      
       </nav>
     )
 }
