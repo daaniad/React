@@ -10,7 +10,7 @@ export default function About() {
 
   return (
       <div>
-        <h2>Esto es el {title}</h2>
+        <h2 className="text-white">Esto es el {title}</h2>
         <Title setTitle={setTitle} />
         <Listed todoList={list} onClick = {setList} />
       </div>

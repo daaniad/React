@@ -1,8 +1,8 @@
 export const homeMenuRight = [
 
 {
-    label:"Basket",
-    path:"/basket"
+    label:"Cart",
+    path:"/cart"
 },
 
 {

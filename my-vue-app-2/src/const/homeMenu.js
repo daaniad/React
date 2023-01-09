@@ -10,12 +10,22 @@ export const homeMenu = [
     },
 
     {
-        label: "Cart",
-        path:"/cart"
+        label: "About",
+        path:"/about"
     },
 
     {
-        label: "About",
-        path:"/about"
+        label: "Kingdom Hearts",
+        path: "/Kingdom-hearts"
+    },
+
+    {
+        label: "My Hero Academia",
+        path: "/my-hero-academia"
+    },
+    
+    {
+        label: "Pokemon",
+        path: "/Pokemon"
     },
 ]

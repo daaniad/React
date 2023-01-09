@@ -8,6 +8,9 @@ import About from "./views/About/About";
 import { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import Layout from "./components/Layout";
+import KingdomHearts from "./views/KingdonHearts/KingdomHearts";
+import MyHeroAcademia from "./views/My_Hero_Academia/MyHeroAcademia";
+import Pokemon from "./views/Pokemon/Pokemon";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="cart" element={<Cart />} />
           <Route path="about" element={<About />} />
+          <Route path="Kingdom-hearts" element={<KingdomHearts/>}/>
+          <Route path="My-hero-academia" element={<MyHeroAcademia/>}/>
+          <Route path="Pokemon" element={<Pokemon/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

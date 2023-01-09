@@ -1,5 +1,5 @@
 export default function Cart () {
     return (
-        <h2>Esto es carrito</h2>
+        <h2 className="text-white">Esto es carrito</h2>
     )
 }

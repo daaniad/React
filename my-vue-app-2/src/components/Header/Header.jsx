@@ -5,7 +5,7 @@ export function Header({ menuItemsRight }) {
     <header>
       <div className="d-flex justify-content-between text-white bg-dark">
         <div className="">
-          <img height={60} src={logo} />
+          <img height={60} src={logo}/>
         </div>
         <div className="">
           <h1 className="">House of POP</h1>
