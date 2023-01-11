@@ -6,7 +6,7 @@ export function Navbar ({menuItems}) {
 
         <ul className="list-unstyled d-inline-flex bg-white rounded">
         {menuItems.map((menuItem, index) => (
-            <li className="p-2" key={index}><Link className="text-dark text-decoration-none" to={menuItem.path} ><span>{menuItem.label}</span></Link></li>
+            <li className="btn btn-light btn-lg p-2" key={index}><Link className="text-dark text-decoration-none" to={menuItem.path} ><span>{menuItem.label}</span></Link></li>
         ))}
         </ul>
         

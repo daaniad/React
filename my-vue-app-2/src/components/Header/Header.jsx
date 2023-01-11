@@ -22,17 +22,14 @@ export function Header({ menuItemsRight }) {
           </div>
         </div>
       </div>
-      <div className="">
-        <div className="input-grp">
-          <input
-            className=""
-            type="search"
-            name="search"
-            id="search"
-            placeholder="Search..."
-          />
-        </div>
-      </div>
+      <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid justify-content-center">
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-light" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
     </header>
   );
 }
