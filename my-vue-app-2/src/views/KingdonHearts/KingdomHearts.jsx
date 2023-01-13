@@ -1,5 +1,28 @@
-export default function KingdomHearts () {
-    return (
-        <h2 className="text-white">Kingdom Hearts Category</h2>
-    )
+import { useState, useEffect } from "react";
+import Todos from "../../components/TODOS/todos"
+export default function KingdomHearts() {
+  const [toDos, setTodo] = useState([]);
+  const [crossOut, setCrossOut] = (toDos);
+
+  useEffect(
+    function () {
+      async function fetchList() {
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/todos`
+        );
+        const details = await response.json();
+        setTodo(details);
+      }
+      fetchList();
+    },
+    []
+  );
+ 
+
+  return (
+    <>
+      <h2 className="text-white">Kingdom Hearts Category</h2>
+      <Todos todoList={toDos} onClick = {setTodo} />
+    </>
+  );
 }

@@ -1,5 +1,7 @@
 
 export default function Listed({todoList, onClick}) {
+
+
   function removeItemList(id) {
     const newList = todoList.filter(item => item.id !== id)
     onClick(newList)

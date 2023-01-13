@@ -5,8 +5,12 @@ import { todoList } from "@/const/todoList";
 
 export default function About() {
 
-  const [title, setTitle] = useState("About");
+  const [title, setTitle] = useState(false);
   const [list, setList] = useState(todoList);
+
+  function toggle() {
+    setTitle(!title)
+  }
 
   return (
       <div>
