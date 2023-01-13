@@ -22,11 +22,11 @@ export function Header({ menuItemsRight }) {
           </div>
         </div>
       </div>
-      <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid justify-content-center">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-light" type="submit">Search</button>
+      <nav className="navbar bg-body-tertiary">
+  <div className="container-fluid justify-content-center">
+    <form className="d-flex" role="search">
+      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button className="btn btn-light" type="submit">Search</button>
     </form>
   </div>
 </nav>

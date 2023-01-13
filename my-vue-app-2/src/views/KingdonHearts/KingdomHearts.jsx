@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import Todos from "../../components/TODOS/todos"
 export default function KingdomHearts() {
   const [toDos, setTodo] = useState([]);
-  const [crossOut, setCrossOut] = (toDos);
+
+  
 
   useEffect(
     function () {
@@ -17,12 +18,12 @@ export default function KingdomHearts() {
     },
     []
   );
- 
+ const showTwenty = toDos.slice(0,20)
 
   return (
     <>
       <h2 className="text-white">Kingdom Hearts Category</h2>
-      <Todos todoList={toDos} onClick = {setTodo} />
+      <Todos todoList={showTwenty} onClick = {setTodo} />
     </>
   );
 }
