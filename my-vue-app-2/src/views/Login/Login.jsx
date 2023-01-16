@@ -17,19 +17,29 @@ export default function Login() {
     setCredentials(newCredentials);
   }
 
-  function handleSubmitDos(event, credentials) {
-    event.preventDefault();
+  async function handleSubmitDos() {
+    
 
-    useEffect(
-      function() {
-        async function fetchLogin() {
-          const response = await fetch(
-            `http://localhost:3000/user`
-          )
+    let body = {email:email, password: password}
+
+    fetch("http://localhost:8000/login", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(body)
+
+    }).then((response)=> {
+        console.log(response.status);
+        if(response.status == 401) {
+            throw "No autorizado"
         }
-      }
-    )
-  }
+
+    }).then((ok) => {  
+     errorDiv.innerHTML="<p>Usuario y Contraseña correcta</p>"
+
+}).catch((error)=> {
+    errorDiv.innerHTML="<p>Usuario y Contraseña incorrecta";
+})};
+  
 
   function handleSubmit(event, credentials) {
     event.preventDefault();
