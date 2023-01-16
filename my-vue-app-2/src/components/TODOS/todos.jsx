@@ -7,7 +7,7 @@ export default function Todos({ todoList, onClick }) {
     <div>
       <ol>
         {todoList
-          .filter((item) => item.id < 21)
+          .filter((item) => item.id <= 20)
           .map((task) => (
             <li className="text-white" key={task.id}>
               <button>{task.title}</button>
