@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
 export default function Login() {
@@ -14,6 +15,20 @@ export default function Login() {
     };
 
     setCredentials(newCredentials);
+  }
+
+  function handleSubmitDos(event, credentials) {
+    event.preventDefault();
+
+    useEffect(
+      function() {
+        async function fetchLogin() {
+          const response = await fetch(
+            `http://localhost:3000/user`
+          )
+        }
+      }
+    )
   }
 
   function handleSubmit(event, credentials) {

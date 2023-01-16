@@ -13,15 +13,16 @@ export default function Todos({ todoList, onClick }) {
 
   return (
     <div>
-      <input></input>
       <ol>
-        {todoList
-          .filter((item) => item.id <= 20)
-          .map((task) => (
+        {todoList.length === 0 ? (
+          <h3 className="text-white">No hay tareas</h3> ) : (
+          todoList.map((task) => (
             <li className="text-white" key={task.id}>
               <button>{task.title}</button>
               <button onClick={() => removeItemList(task.id)}>X</button>
             </li>
+
+        )
           ))}
       </ol>
     </div>

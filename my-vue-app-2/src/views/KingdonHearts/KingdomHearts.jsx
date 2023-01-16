@@ -4,15 +4,21 @@ export default function KingdomHearts() {
   const [toDos, setTodo] = useState([]);
   const [crossOut, setCrossOut] = (toDos);
   const [newTask, setNewTask] = useState("");
-  const [taskToAdd, setTaskToAdd] = useState([])
+
 
   function addNewTask(e) {
     setNewTask(e.target.value)
   }
 
   function addTaskToList(e) {
-    e.preventDefault()
-    setTaskToAdd([...taskToAdd, newTask]);
+    e.preventDefault();
+    const newToDo = {
+      id: toDos.length + 1,
+      title: newTask,
+      completed: false,
+      userId: 1
+    }
+    setTodo([newToDo, ...toDos]);
     setNewTask("")
   }
 
@@ -24,13 +30,13 @@ export default function KingdomHearts() {
           `https://jsonplaceholder.typicode.com/todos`
         );
         const details = await response.json();
-        setTodo(details);
+        setTodo(details.slice(0,20));
       }
       fetchList();
     },
     []
   );
- const showTwenty = toDos.slice(0,20)
+ 
 
   return (
     <>
@@ -38,15 +44,8 @@ export default function KingdomHearts() {
         <input value={newTask} onChange={addNewTask}/>
         <button>Add Task</button>
       </form>
-      <ul>
-        {taskToAdd.length === 0 ? (
-          <h3 className="text-white">No tasks to show</h3>
-         ) : (
-          taskToAdd.map((tasks) => <li className="text-white" key={tasks}>{tasks}</li>)
-         )}
-      </ul>
       <h2 className="text-white">Kingdom Hearts Category</h2>
-      <Todos todoList={showTwenty} onClick = {setTodo} />
+      <Todos todoList={toDos} onClick = {setTodo} />
     </>
   );
 }
