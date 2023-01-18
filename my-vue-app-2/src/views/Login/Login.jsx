@@ -1,5 +1,6 @@
 import { useState} from "react";
 import {useNavigate} from "react-router-dom"
+import { useCheckLoginContext } from "../../contexts/logInContext";
 const initialUserState = {
   email: "",
   password: "",
@@ -43,7 +44,7 @@ export default function Login() {
       body: JSON.stringify(newUser),
     }).then((response) => {
       console.log(response.status);
-      if (response.status == 401) {
+      if (response.status === 401) {
         throw "No autorizado";
       } else if (response.status === 200) {
         alert(`User ${newUser.name} signed-in successfully`);
@@ -63,9 +64,7 @@ export default function Login() {
       body: JSON.stringify(credentials),
     }).then((response) => {
       console.log(response.status);
-      if (response.status == 401) {
-        throw "No autorizado";
-      } else if (response.status === 200) {
+      if (response.status === 200) {
         navigate("/")
       } else {
         alert("Invalid user or password, try again")
@@ -73,7 +72,7 @@ export default function Login() {
     });
   }
 
-  
+  const {toggleLogin, userMode} = useCheckLoginContext();
 
   return (
     <>
@@ -83,6 +82,7 @@ export default function Login() {
           <input
             type="email"
             name="email"
+            required
             value={credentials.email}
             onChange={handleCredentials}
           />
@@ -92,8 +92,9 @@ export default function Login() {
             value={credentials.password}
             onChange={handleCredentials}
           />
-          <button type="submit">Login</button>
+          <button type="submit">Login {userMode}</button>
         </form>
+        <button onClick={toggleLogin}>Login Context</button>
       </div>
 
       <div>
@@ -109,6 +110,7 @@ export default function Login() {
           <input
             type="text"
             name="surname"
+            required
             placeholder="apellidos"
             value={newUser.surname}
             onChange={handleInput}

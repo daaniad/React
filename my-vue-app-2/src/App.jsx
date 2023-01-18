@@ -11,9 +11,12 @@ import Layout from "./components/Layout";
 import KingdomHearts from "./views/KingdonHearts/KingdomHearts";
 import MyHeroAcademia from "./views/My_Hero_Academia/MyHeroAcademia";
 import Pokemon from "./views/Pokemon/Pokemon";
+import { LogInContextProvider } from "./contexts/logInContext";
+
 
 function App() {
   return (
+    <LogInContextProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -27,6 +30,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </LogInContextProvider>
   );
 }
 
