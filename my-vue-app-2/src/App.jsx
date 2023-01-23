@@ -11,7 +11,7 @@ import Layout from "./components/Layout";
 import KingdomHearts from "./views/KingdonHearts/KingdomHearts";
 import MyHeroAcademia from "./views/My_Hero_Academia/MyHeroAcademia";
 import Pokemon from "./views/Pokemon/Pokemon";
-import { LogInContextProvider } from "./contexts/logInContext";
+import { LogInContextProvider } from "./contexts/AuthContext/logInContext";
 
 
 function App() {

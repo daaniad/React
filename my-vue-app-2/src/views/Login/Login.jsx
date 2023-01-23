@@ -1,6 +1,6 @@
 import { useState} from "react";
 import {useNavigate} from "react-router-dom"
-import { useCheckLoginContext } from "../../contexts/logInContext";
+import { useCheckLoginContext } from "../../contexts/AuthContext/logInContext";
 const initialUserState = {
   email: "",
   password: "",
@@ -9,6 +9,7 @@ const initialUserState = {
 }
 
 export default function Login() {
+  const {login} = useCheckLoginContext()
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -78,7 +79,7 @@ export default function Login() {
     <>
       <div>
         <h2 className="text-white">Esto es el Login</h2>
-        <form onSubmit={logIn}>
+        <form onSubmit={(e) => login (e)}>
           <input
             type="email"
             name="email"
