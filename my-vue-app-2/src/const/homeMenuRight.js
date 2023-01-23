@@ -1,8 +1,9 @@
+import {CART} from "./routes"
 export const homeMenuRight = [
 
 {
     label:"Cart",
-    path:"/cart"
+    path:`/${CART}`
 },
 
 {

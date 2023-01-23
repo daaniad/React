@@ -1,20 +1,20 @@
-import { useState} from "react";
-import {useNavigate} from "react-router-dom"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCheckLoginContext } from "../../contexts/AuthContext/logInContext";
 const initialUserState = {
   email: "",
   password: "",
   name: "",
   surname: "",
-}
+};
 
 export default function Login() {
-  const {login} = useCheckLoginContext()
+  const { login, logout, authorization } = useCheckLoginContext();
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
- const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [newUser, setNewUser] = useState(initialUserState);
 
@@ -49,12 +49,12 @@ export default function Login() {
         throw "No autorizado";
       } else if (response.status === 200) {
         alert(`User ${newUser.name} signed-in successfully`);
-        setNewUser(initialUserState)
+        setNewUser(initialUserState);
       } else if (response.status === 409) {
         alert(`Usuario ya registrado`);
       }
     });
-  };
+  }
 
   async function logIn(e) {
     e.preventDefault();
@@ -66,20 +66,26 @@ export default function Login() {
     }).then((response) => {
       console.log(response.status);
       if (response.status === 200) {
-        navigate("/")
+        navigate("/");
       } else {
-        alert("Invalid user or password, try again")
+        alert("Invalid user or password, try again");
       }
     });
   }
 
-  const {toggleLogin, userMode} = useCheckLoginContext();
+  useEffect(() => {
+    if (authorization) {
+      navigate("/")
+    }
+  }, [authorization])
+
+  const { toggleLogin, userMode } = useCheckLoginContext();
 
   return (
     <>
       <div>
         <h2 className="text-white">Esto es el Login</h2>
-        <form onSubmit={(e) => login (e)}>
+        <form onSubmit={(e) => login(e, credentials)}>
           <input
             type="email"
             name="email"
@@ -95,6 +101,7 @@ export default function Login() {
           />
           <button type="submit">Login {userMode}</button>
         </form>
+        
         <button onClick={toggleLogin}>Login Context</button>
       </div>
 

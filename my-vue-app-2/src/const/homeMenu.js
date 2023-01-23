@@ -1,31 +1,32 @@
+import {HOME, LOGIN, ABOUT, KINGDOM_HEARTS, HERO_ACADEMIA, POKEMON} from "./routes"
 export const homeMenu = [
     {
         label:"Home",
-        path:"/"
+        path:`${HOME}`
     },
 
     {
         label: "Login",
-        path:"/login"
+        path:`/${LOGIN}`
     },
 
     {
         label: "About",
-        path:"/about"
+        path:`/${ABOUT}`
     },
 
     {
         label: "Kingdom Hearts",
-        path: "/Kingdom-hearts"
+        path: `/${KINGDOM_HEARTS}`
     },
 
     {
         label: "My Hero Academia",
-        path: "/my-hero-academia"
+        path: `/${HERO_ACADEMIA}`
     },
     
     {
         label: "Pokemon",
-        path: "/Pokemon"
+        path: `/${POKEMON}`
     },
 ]

@@ -12,14 +12,15 @@ import KingdomHearts from "./views/KingdonHearts/KingdomHearts";
 import MyHeroAcademia from "./views/My_Hero_Academia/MyHeroAcademia";
 import Pokemon from "./views/Pokemon/Pokemon";
 import { LogInContextProvider } from "./contexts/AuthContext/logInContext";
-
+import {ROLES} from './const/roles'
+import {HOME, LOGIN, ABOUT, CART, KINGDOM_HEARTS, HERO_ACADEMIA, POKEMON} from "./const/routes"
 
 function App() {
   return (
     <LogInContextProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path={HOME} element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="cart" element={<Cart />} />
