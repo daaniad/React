@@ -7,7 +7,7 @@ const CheckLogInContext = createContext({
   authorization: null,
   login: () => {},
   logout: () => {},
-  errorMessage: null,
+  errorMessage: "Error al introducir email o password",
 });
 
 export default CheckLogInContext;
@@ -35,22 +35,11 @@ export function LogInContextProvider({ children }) {
       const userCredentials = await response.json();
       setAuthorization(jwt_decode(userCredentials.jwt));
       window.localStorage.setItem(MY_AUTH_APP, jwt_decode(userCredentials.jwt));
+      setErrorMessage(null)
     } else {
-      alert("Invalid user or password, try again");
+      
       setErrorMessage("Invalid user or password, try again");
     }
-    // .then((response) => {
-    //   console.log(response.status);
-    //   if (response.status === 200) {
-    //     alert("Logged in successfully");
-    //     navigate("/");
-    //     setAuthorization(response.json.jwt);
-    //     window.localStorage.setItem(MY_AUTH_APP, response.json.jwt);
-    //   } else {
-    //     alert("Invalid user or password, try again");
-    //     setErrorMessage("Invalid user or password, try again");
-    //   }
-    // });
   }
 
   function toggleLogin() {

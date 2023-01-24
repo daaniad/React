@@ -9,7 +9,7 @@ const initialUserState = {
 };
 
 export default function Login() {
-  const { login, logout, authorization } = useCheckLoginContext();
+  const { login, errorMessage, authorization } = useCheckLoginContext();
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -52,23 +52,6 @@ export default function Login() {
         setNewUser(initialUserState);
       } else if (response.status === 409) {
         alert(`Usuario ya registrado`);
-      }
-    });
-  }
-
-  async function logIn(e) {
-    e.preventDefault();
-
-    fetch("http://localhost:3000/user/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials),
-    }).then((response) => {
-      console.log(response.status);
-      if (response.status === 200) {
-        navigate("/");
-      } else {
-        alert("Invalid user or password, try again");
       }
     });
   }
@@ -139,6 +122,7 @@ export default function Login() {
           />
           <button type="submit">Sign-In</button>
         </form>
+        {errorMessage && <p>{errorMessage}</p>}
       </div>
     </>
   );

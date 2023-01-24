@@ -14,20 +14,29 @@ import Pokemon from "./views/Pokemon/Pokemon";
 import { LogInContextProvider } from "./contexts/AuthContext/logInContext";
 import {ROLES} from './const/roles'
 import {HOME, LOGIN, ABOUT, CART, KINGDOM_HEARTS, HERO_ACADEMIA, POKEMON} from "./const/routes"
+import PublicRoute from "./components/router/PublicRoutes/PublicRoute";
+import PrivateRoute from "./components/router/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
     <LogInContextProvider>
     <BrowserRouter>
       <Routes>
+        {/*Rutas públicas*/}
+        <Route path={HOME} element={<PublicRoute/>}>
+          <Route path={LOGIN} element={<Login />} />
+        </Route>
+
+        {/*Rutas privadas*/}
+        <Route path="/u" element={<PrivateRoute/>}>
+          <Route path={CART} element={<Cart />} />
+        </Route>
         <Route path={HOME} element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="about" element={<About />} />
-          <Route path="Kingdom-hearts" element={<KingdomHearts/>}/>
-          <Route path="My-hero-academia" element={<MyHeroAcademia/>}/>
-          <Route path="Pokemon" element={<Pokemon/>}/>
+          <Route path={ABOUT} element={<About />} />
+          <Route path={KINGDOM_HEARTS} element={<KingdomHearts/>}/>
+          <Route path={HERO_ACADEMIA} element={<MyHeroAcademia/>}/>
+          <Route path={POKEMON} element={<Pokemon/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
