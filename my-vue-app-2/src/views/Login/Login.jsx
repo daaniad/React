@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCheckLoginContext } from "../../contexts/AuthContext/logInContext";
 const initialUserState = {
@@ -14,7 +14,6 @@ export default function Login() {
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
 
   const [newUser, setNewUser] = useState(initialUserState);
 
@@ -56,11 +55,7 @@ export default function Login() {
     });
   }
 
-  useEffect(() => {
-    if (authorization) {
-      navigate("/")
-    }
-  }, [authorization])
+
 
   const { toggleLogin, userMode } = useCheckLoginContext();
 

@@ -4,7 +4,10 @@ import jwt_decode from "jwt-decode";
 const CheckLogInContext = createContext({
   userMode: "Logout",
   toggleUserMode: () => {},
-  authorization: null,
+  authorization: {
+    email: null,
+    role: null,
+  },
   login: () => {},
   logout: () => {},
   errorMessage: "Error al introducir email o password",
@@ -33,8 +36,9 @@ export function LogInContextProvider({ children }) {
     });
     if (response.status === 200) {
       const userCredentials = await response.json();
-      setAuthorization(jwt_decode(userCredentials.jwt));
-      window.localStorage.setItem(MY_AUTH_APP, jwt_decode(userCredentials.jwt));
+      const userData = jwt_decode(userCredentials.jwt)
+      setAuthorization({...userData,token:userCredentials.jwt});
+      window.localStorage.setItem(MY_AUTH_APP, JSON.stringify({...userData,token:userCredentials.jwt}));
       setErrorMessage(null)
     } else {
       
@@ -54,7 +58,10 @@ export function LogInContextProvider({ children }) {
 
   function logout() {
     window.localStorage.removeItem(MY_AUTH_APP);
-    setAuthorization(null);
+    setAuthorization({
+      email: null,
+      role: null,
+    });
   }
 
   const value = {

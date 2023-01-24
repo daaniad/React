@@ -4,7 +4,7 @@ import { useCheckLoginContext } from "../../../contexts/AuthContext/logInContext
 export default function PublicRoute() {
   const { authorization } = useCheckLoginContext();
 
-  if (authorization) {
+  if (authorization.email) {
     return <Navigate to={HOME} />;
   }
   return (

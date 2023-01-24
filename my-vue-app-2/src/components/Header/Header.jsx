@@ -10,17 +10,16 @@ export function Header({ menuItemsRight }) {
         <div className="">
           <h1 className="">House of POP</h1>
         </div>
-        <div className="">
-          <div className="d-inline-flex">
+          <div className="d-inline-flex align-items-center">
             {menuItemsRight.map((menuItem, index) => (
-              <button type="button" className="btn btn-light" key={index}>
+              <button type="button" className="btn m-2 btn-light" key={index}>
                 <Link className="text-decoration-none" to={menuItem.path}>
                   <span className="text-dark">{menuItem.label}</span>
                 </Link>
               </button>
             ))}
           </div>
-        </div>
+        
       </div>
       <nav className="navbar bg-body-tertiary">
   <div className="container-fluid justify-content-center">
