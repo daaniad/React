@@ -4,6 +4,7 @@ import { useCheckLoginContext } from "../../../contexts/AuthContext/logInContext
 export default function PrivateRoute({allowedRoles}) {
   const { authorization } = useCheckLoginContext();
   const location = useLocation();
+  console.log(authorization);
 
   return allowedRoles?.includes(authorization.role) ? (
     <Outlet/>

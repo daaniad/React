@@ -1,10 +1,11 @@
-import Home from "../Home/Home";
 import { useNavigate } from "react-router-dom";
 
 export default function Unauthorized() {
   const navigate = useNavigate();
 
   const goBack = () => navigate(-1);
+
+  return (
   <>
     <h2 className="white">
       Your current account has not permission to access this site
@@ -12,5 +13,6 @@ export default function Unauthorized() {
     <button onClick={goBack} className="btn m-2 btn-light">
       Go Back
     </button>
-  </>;
+  </>
+  );
 }
