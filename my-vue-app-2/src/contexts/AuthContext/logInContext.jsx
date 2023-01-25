@@ -2,8 +2,6 @@ import { createContext, useContext, useState } from "react";
 import jwt_decode from "jwt-decode";
 
 const CheckLogInContext = createContext({
-  userMode: "Logout",
-  toggleUserMode: () => {},
   authorization: {
     email: null,
     role: null,
@@ -18,7 +16,6 @@ export default CheckLogInContext;
 const MY_AUTH_APP = "MY_AUTH_APP";
 
 export function LogInContextProvider({ children }) {
-  const [userMode, setUserMode] = useState("Logout");
   const [authorization, setAuthorization] = useState(JSON.parse(
     window.localStorage.getItem(MY_AUTH_APP)) ?? {
       email: null,
@@ -46,16 +43,6 @@ export function LogInContextProvider({ children }) {
     }
   }
 
-  function toggleLogin() {
-    setUserMode(function (oldUserMode) {
-      if (oldUserMode === "Logout") {
-        return "Login";
-      } else {
-        return "Logout";
-      }
-    });
-  }
-
   function logout() {
     window.localStorage.removeItem(MY_AUTH_APP);
     setAuthorization({
@@ -65,8 +52,6 @@ export function LogInContextProvider({ children }) {
   }
 
   const value = {
-    userMode,
-    toggleLogin,
     authorization,
     errorMessage,
     login,

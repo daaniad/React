@@ -55,10 +55,6 @@ export default function Login() {
     });
   }
 
-
-
-  const { toggleLogin, userMode } = useCheckLoginContext();
-
   return (
     <>
       <div>
@@ -77,10 +73,10 @@ export default function Login() {
             value={credentials.password}
             onChange={handleCredentials}
           />
-          <button type="submit">Login {userMode}</button>
+          <button type="submit">Login</button>
         </form>
         
-        <button onClick={toggleLogin}>Login Context</button>
+        
       </div>
 
       <div>
@@ -117,7 +113,6 @@ export default function Login() {
           />
           <button type="submit">Sign-In</button>
         </form>
-        {errorMessage && <p>{errorMessage}</p>}
       </div>
     </>
   );
