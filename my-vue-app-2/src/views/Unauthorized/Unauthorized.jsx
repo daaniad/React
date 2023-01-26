@@ -7,7 +7,7 @@ export default function Unauthorized() {
 
   return (
   <>
-    <h2 className="white">
+    <h2 className="text-white">
       Your current account has not permission to access this site
     </h2>
     <button onClick={goBack} className="btn m-2 btn-light">
