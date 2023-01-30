@@ -5,6 +5,7 @@ import {
   HOME,
   KINGDOM_HEARTS,
   POKEMON,
+  PRODUCTS,
 } from "../../const/routes";
 import {homeMenu} from "../../const/homeMenu"
 export function Navbar() {
@@ -39,6 +40,11 @@ export function Navbar() {
           <li className="btn btn-light btn-lg p-2">
             <Link className="text-dark text-decoration-none" to={POKEMON}>
               <span>{homeMenu[4]}</span>
+            </Link>
+          </li>
+          <li className="btn btn-light btn-lg p-2">
+            <Link className="text-dark text-decoration-none" to={PRODUCTS}>
+              <span>{homeMenu[5]}</span>
             </Link>
           </li>
         </ul>

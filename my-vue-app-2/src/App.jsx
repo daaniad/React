@@ -20,6 +20,7 @@ import {
   KINGDOM_HEARTS,
   HERO_ACADEMIA,
   POKEMON,
+  PRODUCTS,
 } from "./const/routes";
 import PublicRoute from "./components/router/PublicRoutes/PublicRoute";
 import PrivateRoute from "./components/router/PrivateRoute/PrivateRoute";
@@ -32,7 +33,7 @@ function App() {
       <Route path={HOME} element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path="products" element={<Products/>}/>
+        <Route path={PRODUCTS} element={<Products/>}/>
         <Route element={<PublicRoute />}>
           <Route path={LOGIN} element={<Login />} />
         </Route>

@@ -1,1 +1,1 @@
-export const homeMenu = ["Home", "About", "Kingdom Hearts", "My Hero Academia", "Pokemon"]
+export const homeMenu = ["Home", "About", "Kingdom Hearts", "My Hero Academia", "Pokemon", "Products"]
