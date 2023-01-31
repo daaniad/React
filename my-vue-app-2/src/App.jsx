@@ -26,6 +26,7 @@ import PublicRoute from "./components/router/PublicRoutes/PublicRoute";
 import PrivateRoute from "./components/router/PrivateRoute/PrivateRoute";
 import Unauthorized from "./views/Unauthorized/Unauthorized";
 import Products from "./views/Products/Products";
+import ProductDetails from "./views/ProductDetails/ProductDetails";
 
 function App() {
   return (
@@ -33,7 +34,11 @@ function App() {
       <Route path={HOME} element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path={PRODUCTS} element={<Products/>}/>
+
+        <Route path={PRODUCTS}>
+          <Route index element={<Products />} />
+          <Route path={":id"} element={<ProductDetails />} />
+        </Route>
         <Route element={<PublicRoute />}>
           <Route path={LOGIN} element={<Login />} />
         </Route>

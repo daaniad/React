@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { HOME } from "../../const/routes";
 import {Link} from "react-router-dom"
 import customFetch from "../../components/customFetch/customFetch"
 export default function Products() {
@@ -10,11 +9,11 @@ export default function Products() {
     <div className="d-flex">
    {response?.map((product, index) =>(
     <div className="card" style={{width: '18rem'}} key={index}>
-    <img src={`http://127.0.0.1:8080/app${product.path}`} className="card-img-top" alt="..."/>
+    <img src={`http://127.0.0.1:3000/${product.path}`} className="card-img-top" alt="..."/>
     <div className="card-body">
       <h5 className="card-title">{product.nombre}</h5>
-      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <Link to={HOME} className="btn btn-primary">Go somewhere</Link>
+      <p className="card-text">{product.descripcion}</p>
+      <Link to={`${product.idproducto}`} className="btn btn-primary">Details</Link>
     </div>
   </div>
     
