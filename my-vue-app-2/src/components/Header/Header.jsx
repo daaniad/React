@@ -21,6 +21,7 @@ export function Header() {
           </button>
 
           {authorization.email ? (
+            <>
             <button
               type="button"
               onClick={logout}
@@ -28,6 +29,10 @@ export function Header() {
             >
               <span className="text-dark">Logout</span>
             </button>
+            <div>
+              <h3>{authorization.nombre}</h3>
+            </div>
+            </>
           ) : (
             <li className="btn m-2 btn-light">
               <Link className="text-dark text-decoration-none" to={LOGIN}>

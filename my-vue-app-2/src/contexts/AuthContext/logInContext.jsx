@@ -42,7 +42,6 @@ export function LogInContextProvider({ children }) {
       setErrorMessage("Invalid user or password, try again");
     }
   }
-
   function logout() {
     window.localStorage.removeItem(MY_AUTH_APP);
     setAuthorization({
